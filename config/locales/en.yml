@@ -30,4 +30,10 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      book: Book
+  controllers:
+    notice_create: "%{name} was successfully created."
+    notice_update: "%{name} was successfully updated."
+    notice_destroy: "%{name} was successfully destroyed."
