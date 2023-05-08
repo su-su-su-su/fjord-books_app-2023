@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<h1><%= t('books.index.books', name: Book.model_name.human) %></h1>
+<h1><%= t('books.index.resource_list', name: Book.model_name.human) %></h1>
 
 <div id="books" class="index-items">
   <% @books.each do |book| %>
@@ -14,5 +14,5 @@
 </div>
 
 <nav class="page-nav">
-  <%= link_to t('books.index.new_book', name: Book.model_name.human), new_book_path %>
+  <%= link_to t('shared.new', name: Book.model_name.human), new_book_path %>
 </nav>

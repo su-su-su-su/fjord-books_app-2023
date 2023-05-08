@@ -1,9 +1,9 @@
-<h1><%= t('books.new.new_book', name: Book.model_name.human) %></h1>
+<h1><%= t('shared.new', name: Book.model_name.human) %></h1>
 
 <%= render "form", book: @book %>
 
 <br>
 
 <nav class="page-nav">
-  <%= link_to t('shared.back_to_books', name: Book.model_name.human), books_path %>
+  <%= link_to t('shared.back', name: Book.model_name.human), books_path %>
 </nav>

@@ -33,7 +33,39 @@ en:
   activerecord:
     models:
       book: Book
+    attributes:
+      book:
+        title: Title
+        memo: Memo
+        author: Author
+        picture: Picture
+  helpers:
+    submit:
+      create: Create
+      update: Update
+  shared:
+    back: "Back to %{name}"
+    back_to_show: "Show this %{name}"
+    new: "New %{name}"
+  books:
+    index:
+      resource_list: "List of %{name}"
+    book:
+      title: Title
+      memo: Memo
+      author: Author
+      picture: Picture
+    form:
+      errors_prohibited:
+        one: "Could not save this book. There is %{count} error:"
+        other: "Could not save this book. There are %{count} errors:"
+    show:
+      edit: "Edit this %{name}"
+      destroy: "Delete this %{name}"
+    edit:
+      editing: "Editing %{name}"
   controllers:
-    notice_create: "%{name} was successfully created."
-    notice_update: "%{name} was successfully updated."
-    notice_destroy: "%{name} was successfully destroyed."
+     notice_create: "%{name} was successfully created."
+     notice_update: "%{name} was successfully updated."
+     notice_destroy: "%{name} was successfully deleted."
+

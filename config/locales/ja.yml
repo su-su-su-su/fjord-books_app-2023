@@ -13,12 +13,12 @@ ja:
       create: 登録する
       update: 更新する
   shared:
-    back_to_books: "%{name}の一覧に戻る"
+    back: "%{name}の一覧に戻る"
     back_to_show: "この%{name}を表示"
+    new: "%{name}を作成"
   books:
     index:
-      books: "%{name}の一覧"
-      new_book: "新しい%{name}"
+      resource_list: "%{name}の一覧"
     book:
       title: タイトル
       memo: メモ
@@ -33,8 +33,6 @@ ja:
       destroy: "この%{name}を削除"
     edit:
       editing: "%{name}を編集"
-    new:
-       new_book: "%{name}を作成"
   controllers:
      notice_create: "%{name}が作成されました。"
      notice_update: "%{name}が更新されました。"

@@ -6,6 +6,6 @@
 
 <nav class="page-nav">
   <%= link_to t('books.show.edit', name: Book.model_name.human), edit_book_path(@book) %> |
-  <%= link_to t('shared.back_to_books', name: Book.model_name.human), books_path %>
+  <%= link_to t('shared.back', name: Book.model_name.human), books_path %>
   <%= button_to t('books.show.destroy', name: Book.model_name.human), @book, method: :delete %>
 </nav>
