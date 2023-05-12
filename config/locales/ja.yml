@@ -1,0 +1,39 @@
+ja:
+  activerecord:
+    models:
+      book: 本
+    attributes:
+      book:
+        title: タイトル
+        memo: メモ
+        author: 著者
+        picture: 画像
+  helpers:
+    submit:
+      create: 登録する
+      update: 更新する
+  shared:
+    back: "%{name}の一覧に戻る"
+    back_to_show: "この%{name}を表示"
+    new: "%{name}を作成"
+  books:
+    index:
+      resource_list: "%{name}の一覧"
+    book:
+      title: タイトル
+      memo: メモ
+      author: 著者
+      picture: 画像
+    form:
+      errors_prohibited:
+        one: "この本の保存ができませんでした。%{count}つのエラーがあります:"
+        other: "この本の保存ができませんでした。%{count}つのエラーがあります:"
+    show:
+      edit: "この%{name}を編集"
+      destroy: "この%{name}を削除"
+    edit:
+      editing: "%{name}を編集"
+  controllers:
+     notice_create: "%{name}が作成されました。"
+     notice_update: "%{name}が更新されました。"
+     notice_destroy: "%{name}が削除されました。"
