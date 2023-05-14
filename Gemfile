@@ -49,6 +49,8 @@ gem 'bootsnap', require: false
 
 gem 'devise'
 
+gem 'letter_opener_web'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
