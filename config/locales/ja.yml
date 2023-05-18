@@ -192,6 +192,7 @@ ja:
       title_index: "%{name}の一覧"
       title_new: "%{name}の新規作成"
       title_edit: "%{name}の編集"
+      title_show: "%{name}を表示"
       error: エラー
       validation_error: "%{errors}があるため、この%{name}は保存できませんでした"
       log_out: ログアウト
@@ -206,3 +207,12 @@ ja:
       notice_create: "%{name}が作成されました。"
       notice_update: "%{name}が更新されました。"
       notice_destroy: "%{name}が削除されました。"
+  layouts:
+  application:
+    menu: メニュー
+    sign_in_as: "%{user} としてログイン中"
+  # devise-i18n-viewsをオーバーライド
+  devise:
+    registrations:
+      edit:
+        title: "アカウント編集"
