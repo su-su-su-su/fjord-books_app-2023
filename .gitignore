@@ -37,10 +37,5 @@
 /public/uploads
 
 # Ignore files unrelated to practices
-/app/controllers/users/unlocks_controller.rb
-/app/views/users/mailer/confirmation_instructions.html.erb
-/app/views/users/mailer/email_changed.html.erb
-/app/views/users/mailer/password_change.html.erb
-/app/views/users/mailer/unlock_instructions.html.erb
 
 .env
