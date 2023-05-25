@@ -1,0 +1,17 @@
+<h1><%= User.model_name.human %></h1>
+
+<table>
+  <tr>
+    <th><%= User.human_attribute_name(:email) %></th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= link_to t('views.common.show', name: User.model_name.human), user_path(user) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to t('views.common.log_out'), destroy_user_session_path, method: :delete %>
+
+<%= paginate @users %>
