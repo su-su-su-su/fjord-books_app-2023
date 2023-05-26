@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   root to: 'books#index'
   resources :books
   resources :users, only: %i(index show)
+  get 'users/:user_id/reports', to: 'reports#index', as: 'user_reports'
+  get 'users/:user_id/reports/:id', to: 'reports#show', as: 'user_report'
 end
