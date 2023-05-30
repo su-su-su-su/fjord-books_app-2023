@@ -17,6 +17,8 @@ class ReportsController < ApplicationController
   def show
     @report = Report.find(params[:id])
     @user = @report.user
+    @comments = @report.comments
+    @comment = Comment.new
   end
   # GET /reports/new
   def new

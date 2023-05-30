@@ -1,6 +1,13 @@
 <h1><%= t('views.common.title_show', name: Report.model_name.human) %></h1>
 
 <%= render @report %>
+<hr>
+
+<% @comments.each do |comment| %>
+  <%= render 'comments/comment', comment: comment %>
+<% end %>
+
+<%= render 'comments/form', comment: @comment %>
 
 <div>
   <% if current_user == @user %>
