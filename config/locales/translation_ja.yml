@@ -22,6 +22,7 @@ ja:
         title: タイトル
         content: 本文
         created_at: 投稿日
+        created_by: 投稿者
       comment:
         created_by: 投稿者
         content: コメント

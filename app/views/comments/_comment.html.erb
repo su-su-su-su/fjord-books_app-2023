@@ -1,25 +1,29 @@
 <div id="<%= dom_id comment %>">
   <p>
-    <%= Comment.human_attribute_name(:created_by) %> 
-    <%= comment.user ? (comment.user.name.present? ? comment.user.name : comment.user.email) : 'Deleted User' %>
+  <strong><%= Comment.human_attribute_name(:created_by) %></strong>
+    <%= comment.user.name.present? ? comment.user.name : comment.user.email %>
   </p>
+
+  <p>
+    <%= Comment.human_attribute_name(:created_at) %>
+    <%= comment.created_at.strftime('%Y-%m-%d %H:%M') %>
+  </p>
+
   <p>
     <strong><%= Comment.human_attribute_name(:content) %>:</strong>
     <%= comment.content %>
   </p>
-  <p>
-    <%= Comment.human_attribute_name(:created_at) %> 
-    <%= comment.created_at.strftime('%Y-%m-%d %H:%M') %>
-  </p>
 
   <% if current_user == comment.user %>
-<% if comment.commentable.is_a? Report %>
-  <%= link_to 'Edit', edit_user_report_comment_path(comment.commentable.user, comment.commentable, comment) %> |
-  <%= link_to 'Delete', user_report_comment_path(comment.commentable.user, comment.commentable, comment), data: { turbo_method: :delete } %>
-<% elsif comment.commentable.is_a? Book %>
-  <%= link_to 'Edit', edit_book_comment_path(comment.commentable, comment) %> |
-  <%= link_to 'Delete', book_comment_path(comment.commentable, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
-<% end %>
-<hr>
+    <% if comment.commentable.is_a? Report %>
+      <%= link_to t('views.common.edit', name: Comment.model_name.human.downcase), edit_comment_path(comment) %> |
+      <%= link_to t('views.common.destroy', name: Comment.model_name.human.downcase), comment_path(comment), data: { turbo_method: :delete } %>
+    <% elsif comment.commentable.is_a? Book %>
+      <%= link_to t('views.common.edit', name: Comment.model_name.human.downcase), edit_comment_path(comment) %> |
+      <%= link_to t('views.common.destroy', name: Comment.model_name.human.downcase), comment_path(comment), data: { turbo_method: :delete } %>
+    <% end %>
+  <% end %>
+
+  <hr>
+
 </div>

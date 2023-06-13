@@ -5,11 +5,15 @@ Rails.application.routes.draw do
   root to: 'books#index'
 
   resources :books do
-    resources :comments, only: [:create, :edit, :update, :destroy]
+    resources :comments, only: [:create, :update]
   end
-  resources :users, only: %i(index show) do
-    resources :reports do
-      resources :comments, only: [:create, :edit, :update, :destroy]
-    end
+
+  resources :reports do
+    resources :comments, only: [:create, :update]
   end
+
+  resources :comments, only: [:edit, :destroy]
+
+  resources :users, only: %i(index show)
+
 end
