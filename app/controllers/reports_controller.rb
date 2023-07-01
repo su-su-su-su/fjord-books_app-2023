@@ -11,8 +11,6 @@ class ReportsController < ApplicationController
   # GET /reports/1 or /reports/1.json
   def show
     @report = Report.find(params[:id])
-    @user = @report.user
-    @comments = @report.comments
     @comment = Comment.new
   end
 
@@ -28,33 +26,37 @@ class ReportsController < ApplicationController
   def create
     @report = current_user.reports.build(report_params)
 
-    respond_to do |format|
-      if @report.save
-        format.html { redirect_to report_url(@report), notice: t('controllers.common.notice_create', name: Report.model_name.human) }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-      end
+    if @report.save
+      redirect_to report_url(@report), notice: t('controllers.common.notice_create', name: Report.model_name.human)
+    else
+      redirect_to @report, alert: @report.errors.full_messages.join(', ')
     end
   end
 
   # PATCH/PUT /reports/1 or /reports/1.json
   def update
-    respond_to do |format|
-      if @report.update(report_params)
-        format.html { redirect_to report_url(@report), notice: t('controllers.common.notice_update', name: Report.model_name.human) }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-      end
+    if current_user != @report.user
+      redirect_to @report
+      return
+    end
+
+    if @report.update(report_params)
+      redirect_to report_url(@report), notice: t('controllers.common.notice_update', name: Report.model_name.human)
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   # DELETE /reports/1 or /reports/1.json
   def destroy
+    if current_user != @report.user
+      redirect_to report_url(@report)
+      return
+    end
+
     @report.destroy
 
-    respond_to do |format|
-      format.html { redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human) }
-    end
+    redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human)
   end
 
   private

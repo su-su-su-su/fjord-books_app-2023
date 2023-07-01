@@ -1,0 +1,24 @@
+<div>
+  <p>
+   <strong><%= User.human_attribute_name(:name) %>:</strong>
+    <%= comment.user.name.present? ? comment.user.name : comment.user.email %>
+  </p>
+
+  <p>
+    <strong><%= Comment.human_attribute_name(:created_at) %>:</strong>
+    <%= I18n.l(comment.created_at, format: :short) %>
+  </p>
+
+  <p>
+    <strong><%= Comment.human_attribute_name(:content) %>:</strong>
+    <%= comment.content %>
+  </p>
+
+  <% if current_user == comment.user %>
+    <%= link_to t('views.common.edit', name: Comment.model_name.human.downcase), edit_book_comment_path(@book, comment) %> |
+    <%= link_to t('views.common.destroy', name: Comment.model_name.human.downcase), book_comment_path(@book, comment), data: { turbo_method: :delete } %>
+  <% end %>
+
+  <hr>
+
+</div>

@@ -3,18 +3,18 @@
 <%= render @report %>
 <hr>
 
-<% @comments.each do |comment| %>
-  <%= render 'comments/comment', comment: comment %>
+<% @report.comments.each do |comment| %>
+  <%= render 'reports/comments/comment', comment: comment %>
 <% end %>
 
-<%= render 'comments/form', commentable: @report, comment: @comment %>
+<%= render 'reports/comments/form', comment: @comment %>
 
 <div>
-  <% if current_user == @user %>
+  <% if current_user == @report.user %>
     <%= link_to t('views.common.edit', name: Report.model_name.human.downcase), edit_report_path( @report) %> |
   <% end %>
-     <%= link_to t('views.common.back', name: i18n_pluralize(Report.model_name.human.downcase)), reports_path(@user) %>
-  <% if current_user == @user %>
+     <%= link_to t('views.common.back', name: i18n_pluralize(Report.model_name.human.downcase)), reports_path %>
+  <% if current_user == @report.user %>
     <%= button_to t('views.common.destroy', name: Report.model_name.human.downcase), @report, method: :delete %>
   <% end %>
 </div>
