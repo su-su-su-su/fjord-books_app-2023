@@ -55,3 +55,7 @@ menu-container
 #notice {
     color: var(--global-success-c);
 }
+
+.error-text {
+    color: red;
+  }
