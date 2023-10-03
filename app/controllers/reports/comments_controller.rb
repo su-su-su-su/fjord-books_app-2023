@@ -18,11 +18,6 @@ class Reports::CommentsController < ApplicationController
   def edit; end
 
   def update
-    if current_user != @comment.user
-      redirect_to @report
-      return
-    end
-
     if @comment.update(comment_params)
       redirect_to report_url(@report), notice: t('controllers.common.notice_update', name: Comment.model_name.human)
     else
@@ -31,12 +26,7 @@ class Reports::CommentsController < ApplicationController
   end
 
   def destroy
-    if current_user != @comment.user
-      redirect_to report_url(@report)
-      return
-    end
     @comment.destroy
-
     redirect_to report_url(@report), notice: t('controllers.common.notice_destroy', name: Comment.model_name.human), status: :see_other
   end
 
@@ -47,7 +37,7 @@ class Reports::CommentsController < ApplicationController
   end
 
   def set_comment
-    @comment = Comment.find(params[:id])
+    @comment = current_user.comments.find(params[:id])
   end
 
   def comment_params
