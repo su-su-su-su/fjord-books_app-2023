@@ -33,7 +33,6 @@ class ReportsTest < ApplicationSystemTestCase
     assert_text '日報が作成されました。'
     assert_text '日報のテスト2'
     assert_text 'テスト2です。'
-    click_on '日報の一覧に戻る'
   end
 
   test 'should update Report' do
@@ -47,7 +46,6 @@ class ReportsTest < ApplicationSystemTestCase
     assert_text '日報が更新されました。'
     assert_text '日報のテスト3'
     assert_text 'テスト3です。'
-    click_on '日報の一覧に戻る'
   end
 
   test 'should destroy Report' do
@@ -55,5 +53,6 @@ class ReportsTest < ApplicationSystemTestCase
     click_on 'この日報を削除', match: :first
 
     assert_text '日報が削除されました。'
+    assert_not Report.exists?(@report.id)
   end
 end
