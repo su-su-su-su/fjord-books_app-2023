@@ -4,8 +4,3 @@ report_test:
   title: 日報のテスト
   content: テストです。
   user: alice
-
-# two:
-#   user: two
-#   title: MyString
-#   content: MyText
